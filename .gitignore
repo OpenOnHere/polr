@@ -1,0 +1,8 @@
+web/vendor
+web/bootstrap/cache/
+web/storage/
+web/env
+web/.env
+web/.env.bak
+web/.env.example
+web/composer.phar
