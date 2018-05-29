@@ -40,7 +40,7 @@
     </p>
     <h4 style="color: red;">非法链接一律删除！！！恶意批量申请一律删除！！！</h4>
     <p class="self-text">
-        大家如果喜欢这个产品，可以小小的支持一下，请我喝一杯咖啡。<br/>
+        大家如果喜欢这个产品，可以小小的支持一下，请我喝一杯咖啡。联系我闲扯或合作请邮件至 ecnu.yszc[AT]gmail.com (请更换[AT]为@) <br/>
         <img class="qrcode" src="/img/alipay.jpeg">
         <img class="qrcode" src="/img/wechat.png">
     </p>
