@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddConfirmedToUsersTable' => $baseDir . '/database/migrations/2018_06_24_152035_add_confirmed_to_users_table.php',
     'AddLinkTableIndexes' => $baseDir . '/database/migrations/2017_02_04_025727_add_link_table_indexes.php',
     'AlterLinkClicksToInteger' => $baseDir . '/database/migrations/2017_02_08_003907_alter_link_clicks_to_integer.php',
     'AuthTest' => $baseDir . '/tests/AuthTest.php',

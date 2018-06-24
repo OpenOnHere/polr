@@ -474,6 +474,7 @@ class ComposerStaticInit44bc5ad30f2929ecfad12cb24dac4f5f
     );
 
     public static $classMap = array (
+        'AddConfirmedToUsersTable' => __DIR__ . '/../..' . '/database/migrations/2018_06_24_152035_add_confirmed_to_users_table.php',
         'AddLinkTableIndexes' => __DIR__ . '/../..' . '/database/migrations/2017_02_04_025727_add_link_table_indexes.php',
         'AlterLinkClicksToInteger' => __DIR__ . '/../..' . '/database/migrations/2017_02_08_003907_alter_link_clicks_to_integer.php',
         'AuthTest' => __DIR__ . '/../..' . '/tests/AuthTest.php',
