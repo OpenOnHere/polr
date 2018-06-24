@@ -27,6 +27,9 @@
             <div role="tabpanel" class="tab-pane active" id="home">
                 <h2>Welcome to your {{env('APP_NAME')}} dashboard!</h2>
                 <p>Use the links on the left hand side to navigate your {{env('APP_NAME')}} dashboard.</p>
+                @if (!$confirmed_at)
+                <p><b style="color:red;">Attention</b>: For your account security, <a>please verify your email</a>.</p>
+                @endif
             </div>
 
             <div role="tabpanel" class="tab-pane" id="links">

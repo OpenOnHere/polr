@@ -137,6 +137,34 @@ class UserController extends Controller {
         return $response;
     }
 
+    public function performSendVerifyEmail(Request $request){
+        $username = session('username');
+        $role = session('role');
+        $user = UserHelper::getUserByUsername($username);
+
+        if (!$user) {
+            return redirect(route('index'))->with('error', 'please sign in before opration.');
+        }
+
+        if ($user->confirmed_at){
+            return redirect(route('index'))->with('success', 'you are verified.');
+        }
+
+        $ip = $request->ip();
+
+        $recovery_key = UserHelper::resetRecoveryKey($user->username);
+
+        Mail::send('emails.activation', [
+            'username' => $username, 'recovery_key' => $recovery_key, 'ip' => $ip
+        ], function ($m) use ($user) {
+            $m->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
+
+            $m->to($user->email, $user->username)->subject(env('APP_NAME') . ' account activation');
+        });
+
+        return redirect(route('index'))->with('success', 'Verify email sent. Check your inbox for details.');
+    }
+
     public function performSendPasswordResetCode(Request $request) {
         if (!env('SETTING_PASSWORD_RECOV')) {
             return redirect(route('index'))->with('error', 'Password recovery is disabled.');
@@ -174,7 +202,7 @@ class UserController extends Controller {
             $user->save();
 
             UserHelper::resetRecoveryKey($username);
-            return redirect(route('login'))->with('success', 'Account activated. You may now login.');
+            return redirect(route('index'))->with('success', 'Account activated. You may now login.');
         }
         else {
             return redirect(route('index'))->with('error', 'Username or activation key incorrect.');
