@@ -170,6 +170,7 @@ class UserController extends Controller {
             // Key is correct
             // Activate account and reset recovery key
             $user->active = 1;
+            $user->confirmed_at = date('Y-m-d H:i:s');
             $user->save();
 
             UserHelper::resetRecoveryKey($username);
